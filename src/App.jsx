@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { FaHotel } from "react-icons/fa6";
+import { FaTrainSubway } from "react-icons/fa6";
+import { FaCarRear } from "react-icons/fa6";
+import { PiAirplaneTiltFill } from "react-icons/pi";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <nav>
-        <img src="/public/images/logo.png" alt="logo" className='logo'/>
+        <img src="/images/logo.png" alt="logo" className='logo'/>
         <ul className='trips'>
-          <li> Flights </li>
-          <li> Hotels </li>
-          <li> Trains </li>
-          <li> Cabs </li>
+          <li> <PiAirplaneTiltFill /> Flights </li>
+          <li> <FaHotel /> Hotels </li>
+          <li> <FaTrainSubway /> Trains </li>
+          <li> <FaCarRear /> Cabs </li>
         </ul>
         <ul className='accinfo'>
           <li> My Trips </li>
@@ -24,13 +24,11 @@ function App() {
       <section>
         <div className="booking">
           <form action="" id='station'>
-            <input type="radio" id='selectST' name='options' />
-            <label> One Way </label>
-            <input type="radio" id='selectST' name='options' />
-            <label> Round Trip </label>
-            <input type="radio" id='selectST' name='options' />
-            <label> Multi Trip </label>
+            <label><input type="radio" id='selectST' name='options' /> One Way </label>
+            <label><input type="radio" id='selectST' name='options' /> Round Trip </label>
+            <label><input type="radio" id='selectST' name='options' /> Multi City </label>
           </form>
+          <p> Book International and Domestic Flight</p>
         </div>
       </section>
     </>
