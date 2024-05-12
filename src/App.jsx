@@ -11,7 +11,7 @@ function App() {
       <nav>
         <img src="/images/logo.png" alt="logo" className='logo'/>
         <ul className='trips'>
-          <li> <PiAirplaneTiltFill /> Flights </li>
+          <li className=''> <PiAirplaneTiltFill /> Flights </li>
           <li> <FaHotel /> Hotels </li>
           <li> <FaTrainSubway /> Trains </li>
           <li> <FaCarRear /> Cabs </li>
