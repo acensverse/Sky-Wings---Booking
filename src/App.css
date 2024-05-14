@@ -36,28 +36,57 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    margin-top: 5rem;
   }
 
   .booking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #station {
     display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: white;
     color: black;
     padding: 1rem;
-    width: 100%;
-    margin: 2.5rem;
     border-radius: 10px;
-
+    width: max-content;
+    position: absolute;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
-  #station {
+  #place {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0.5rem;
+    position: absolute;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 25rem;
   }
 
-  label {
-    margin: 1rem;
+  .specialfarebooking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .special {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    margin-top: 40rem;
+    background-color: aqua;
+    /* width: 1000px; */
   }
