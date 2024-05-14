@@ -27,8 +27,9 @@ function App() {
             <label><input type="radio" id='selectST' name='options' /> One Way </label>
             <label><input type="radio" id='selectST' name='options' /> Round Trip </label>
             <label><input type="radio" id='selectST' name='options' /> Multi City </label>
+            <p class='ml-20'> Book International and Domestic Flight </p>
           </form>
-          <p> Book International and Domestic Flight</p>
+          
         </div>
       </section>
     </>

@@ -12,7 +12,7 @@
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border-radius: 10px;
   width: 100%;
 }
@@ -32,6 +32,12 @@ nav {
     height: auto;
   }
 
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .booking {
     display: flex;
     align-items: center;
@@ -46,9 +52,9 @@ nav {
   }
 
   #station {
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: space-evenly; */
+    justify-content: space-evenly;
     margin: 0.5rem;
   }
 
