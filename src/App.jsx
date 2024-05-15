@@ -34,22 +34,19 @@ function App() {
             <form action="" id='place'>
               <label class=' '> From <input type="text" name="placeName" id="placeName1" placeholder='Station 1' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
               <label class=' '> To <input type="text" name="placeName" id="placeName2" placeholder='Station 1' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
-              <label class=' '> Departure <input type="text" name="placeName" id="placeName2" placeholder='Station 1' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
-              <label class=' '> Return <input type="text" name="placeName" id="placeName2" placeholder='Station 1' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
-              <label class=' '> Travellers & Class <input type="text" name="placeName" id="placeName2" placeholder='Station 1' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
+              <label class=' '> Departure <input type="text" name="placeName" id="placeName2" placeholder='Departure' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
+              <label class=' '> Return <input type="text" name="placeName" id="placeName2" placeholder='Return' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
+              <label class=' '> Travellers & Class <input type="text" name="placeName" id="placeName2" placeholder='Travellers & Class' class='border border-gray-500 rounded-xl p-8 m-2' /> </label>
             </form>
             <div className="special">
-              <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class=' m-2 p-4 ' /> Regular </label>
+              <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class=' m-2 p-4' /> Regular </label>
               <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Student </label>
               <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Senior Citizen </label>
               <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Armed Forces </label>
               <label class='border border-gray-500 p-4 rounded-xl'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Docter and Nurses </label>
             </div>
           </div>
-
         </div>
-
-          
       </section>
     </>
   )

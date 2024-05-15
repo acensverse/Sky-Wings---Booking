@@ -78,15 +78,18 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
   }
 
   .special {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     position: absolute;
     margin-top: 40rem;
-    background-color: aqua;
-    /* width: 1000px; */
+    width: 1000px;
+  }
+
+  #specialFare {
+    padding: 3rem;
   }
