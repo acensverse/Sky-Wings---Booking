@@ -18,8 +18,6 @@ function App() {
       '/public/images/2.jpg',
       '/public/images/3.jpg',
     ]
-
-    console.log(imageURLs);
     
     const randomBg = Math.floor(Math.random() * imageURLs.length)
     const randomImage = imageURLs[randomBg];
@@ -99,39 +97,29 @@ function App() {
             </form>
 
             <div className="special" >
-              <div className="">
+              <div className="m-2">
                 <h1 className='font-bold'> Special Fares </h1>
-                <h1 className='bg-gradient-to-r from-indigo-400 to-indigo-800 p-2 rounded-xl text-white font-bold'> EXTRA SAVINGS </h1>
+                <h1 className='bg-gradient-to-r from-indigo-400 to-indigo-800 p-2 rounded-md text-sm text-white font-bold'> EXTRA SAVINGS </h1>
               </div>
 
               <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-                <input type="radio" name="specialfare" id="specialFare" class='mr-2' />
-                <label className='font-bold text-gray-800'> Regular </label>
-                <p className='text-xs text-gray-500 font-medium ml-10'> Regular Fares </p>
+                <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" class='mr-2' /> Regular <p className='text-xs text-gray-500 font-medium ml-10'> Regular Fares </p> </label>
               </div>
               
-              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-                <input type="radio" name="specialfare" id="specialFare" class='mr-2' />
-                <label className='font-bold text-gray-800'> Student </label>
-                <p className='text-xs text-gray-500 font-medium ml-10'> Extra Discounts </p>
+              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
+                <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" class='mr-2' /> Student <p className='text-xs text-gray-500 font-medium ml-10'> Extra Discounts </p> </label>
               </div>
               
-              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-                <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/>
-                <label className='font-bold text-gray-800'> Senior Citizen </label>
-                <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p>
+              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
+                <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Senior Citizen <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p> </label>              
               </div>
               
-              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-                <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/>
-                <label className='font-bold text-gray-800'> Armed Forces </label>
-                <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p>
+              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
+                <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Armed Forces <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p> </label>          
               </div>
               
-              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-                <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/>
-                <label className='font-bold text-gray-800'> Docter and Nurses </label>
-                <p className='text-xs text-gray-500 font-medium ml-1'> Exclusive Discounts </p>
+              <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">              
+                <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" class='m-2 p-4'/> Docter and Nurses <p className='text-xs text-gray-500 font-medium ml-1'> Exclusive Discounts </p> </label>             
               </div>
             </div>
 
