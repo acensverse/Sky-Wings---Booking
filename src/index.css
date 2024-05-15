@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #root {
-  padding: 0.5rem;
+  padding: 0rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,8 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/boat.jpg);
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
