@@ -12,11 +12,11 @@
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   border-radius: 10px;
   width: 100%;
 }
- ul, li {
+ .trips, .accinfo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,12 +24,27 @@ nav {
   padding: 1rem;
   color: white;
   font-size: larger;
-  margin-right: 0.5rem;
+ }
+
+ li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-weight: bold;
  }
 
   .logo {
-    width: 200px;
+    width: 150px;
     height: auto;
+    background: none;
+  }
+
+  .midPart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15rem;
   }
 
   section {
@@ -67,11 +82,11 @@ nav {
     position: absolute;
     padding-top: 5rem;
     padding-bottom: 10rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: white;
     border-radius: 15px;
-    margin-top: 25rem;
+    margin-top: 22rem;
   }
 
   #placeName::placeholder {
@@ -89,7 +104,7 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
-    margin-top: 35rem;
+    margin-top: 30rem;
     width: 1000px;
   }
 
@@ -103,7 +118,7 @@ nav {
     justify-content: center;
     position: absolute;
     z-index: 1;
-    margin-top: 48rem;
+    margin-top: 44rem;
     color: white;
     font-weight: bold;
     font-size: x-large;
