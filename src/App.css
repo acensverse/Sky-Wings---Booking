@@ -57,7 +57,7 @@ nav {
     width: max-content;
     position: absolute;
     z-index: 1;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   #place {
@@ -74,11 +74,14 @@ nav {
     margin-top: 25rem;
   }
 
+  #placeName::placeholder {
+    font-weight: bold;
+  }
+
   .specialfarebooking {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 100%; */
   }
 
   .special {
@@ -86,10 +89,22 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
-    margin-top: 40rem;
+    margin-top: 35rem;
     width: 1000px;
   }
 
   #specialFare {
     padding: 3rem;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    margin-top: 48rem;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
   }
