@@ -12,11 +12,11 @@ function App() {
   
   useEffect(() => {
     const imageURLs = [
-      '/public/images/river.jpg',
-      '/public/images/boat.jpg',
-      '/public/images/1.jpg',
-      '/public/images/2.jpg',
-      '/public/images/3.jpg',
+      'images/river.jpg',
+      'images/boat.jpg',
+      'images/1.jpg',
+      'images/2.jpg',
+      'images/3.jpg',
     ]
     
     const randomBg = Math.floor(Math.random() * imageURLs.length)
