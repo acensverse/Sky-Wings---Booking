@@ -106,7 +106,7 @@ function App() {
           </div>
           
           <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> Travellers & className </label>
+            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> Travellers & Class </label>
             <input type="list" name="placeName" id="placeName" placeholder='1 Adult Economy' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1' />
           </div>
         </form>
