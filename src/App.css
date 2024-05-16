@@ -131,6 +131,7 @@
 
     #switch {
       transform: rotate(90deg);
+      margin-left: 15rem
     }
 
     .search {

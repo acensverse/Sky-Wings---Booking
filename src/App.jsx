@@ -64,7 +64,7 @@ function App() {
 
       {/* --------------------------------------------------------------------------------------------- */}
 
-      <section className=' static md:relative md:flex flex-col items-center justify-evenly md:justify-center mt-5 md:mt-20 p-4 md:p-0'>
+      <section className=' static md:relative md:flex flex-col items-center justify-evenly md:justify-center mt-2 md:mt-20 p-4 md:p-0'>
 
         <form action="" id='station' className='flex items-center justify-around bg-white z-10 rounded-xl md:p-4'>
           <label className='p-4 text-gray-500 font-bold'><input type="radio" id='selectST' name='options' /> One Way </label>
