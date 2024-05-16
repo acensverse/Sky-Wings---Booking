@@ -4,14 +4,14 @@
   min-width: 100vw;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
-nav {
+/* nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
   width: 100%;
-}
- .trips, .accinfo {
+} */
+ /* .trips, .accinfo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ nav {
   padding: 1rem;
   color: white;
   font-size: larger;
- }
+ } */
 
  li {
   display: flex;
@@ -29,12 +29,6 @@ nav {
   font-weight: bold;
  }
 
-  .logo {
-    width: 150px;
-    height: auto;
-    background: none;
-  }
-
   .midPart {
     display: flex;
     align-items: center;
@@ -42,13 +36,13 @@ nav {
     margin-left: 15rem;
   }
 
-  section {
+  /* section {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin-top: 5rem;
-  }
+  } */
 
   .booking {
     display: flex;
@@ -57,20 +51,11 @@ nav {
   }
 
   #station {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: white;
-    color: black;
-    padding: 1rem;
-    border-radius: 10px;
-    width: max-content;
-    position: absolute;
-    z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* margin-bottom: 22rem; */
   }
 
-  #place {
+  /* #place {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,24 +67,28 @@ nav {
     background-color: white;
     border-radius: 15px;
     margin-top: 22rem;
+  } */
+
+  input[type="radio"] {
+    vertical-align: -1px;
   }
 
   #placeName::placeholder {
     font-weight: bold;
   }
 
-  .specialfarebooking {
+  /* .specialfarebooking {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-  }
+    position: relative;
+  } */
 
   #switch {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
 
-  .special {
+  /* .special {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -107,7 +96,7 @@ nav {
     z-index: 1;
     margin-top: 30rem;
     width: 1000px
-  }
+  } */
 
   #specialFare {
     padding: 3rem;
@@ -123,4 +112,36 @@ nav {
     color: white;
     font-weight: bold;
     font-size: x-large;
+  }
+
+  @media screen and (max-width: 1170px) {
+    .app {
+      background: cover;
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+
+    #placeName {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: white;
+    }
+
+    #switch {
+      transform: rotate(90deg);
+    }
+
+    .search {
+      margin-top: 1rem;
+      margin-left: 7rem;
+      font-size: medium;
+    }
+
+    #search {
+      width: 100%;
+      border-radius: 10px;
+    }
+
   }
