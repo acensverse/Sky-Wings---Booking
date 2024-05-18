@@ -5,7 +5,6 @@ import { FaTrainSubway } from "react-icons/fa6";
 import { FaCarRear } from "react-icons/fa6";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
-import { HiSwitchHorizontal } from "react-icons/hi";
 
 function Nav() {
   return (

@@ -4,9 +4,10 @@ import { FaHotel } from "react-icons/fa6";
 import { FaTrainSubway } from "react-icons/fa6";
 import { FaCarRear } from "react-icons/fa6";
 import { GiCommercialAirplane } from "react-icons/gi";
-import { CgProfile } from "react-icons/cg";
-import { HiSwitchHorizontal } from "react-icons/hi";
-import Nav from './Nav.jsx';
+import Nav from './Nav';
+import Travel from './Travel';
+import Fare from './Fare';
+
 
 function App() { 
   const [bgImage, setBgImage] = useState('')
@@ -31,7 +32,6 @@ function App() {
     <div className='app' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bgImage})` }}>
       
       <Nav />
-      
 
       {/* Mobile view Port Trip Section */}
 
@@ -44,7 +44,7 @@ function App() {
         </ul>
       </div>
 
-      {/* --------------------------------------------------------------------------------------------- */}
+      {/* --------------------------------------------------------------------------------- */}
 
       <section className=' static md:relative md:flex flex-col items-center justify-evenly md:justify-center mt-2 md:mt-20 p-4 md:p-0'>
 
@@ -57,74 +57,16 @@ function App() {
 
         {/* Travels Section and Station Options */}
 
-        <form action="" id='place' className='static md:absolute md:flex md:flex-row md:items-center md:justify-center md:pt-20 md:pb-40 md:px-4 flex-col items-center justify-evenly bg-white rounded-xl md:mt-88 p-5 mt-2'>
-
-          <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> From  </label>
-            <input type="text" name="placeName" id="placeName" placeholder='Enter city or airport' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1 text-black font-bold' />
-          </div>
-
-          {/* Switch button */}
-
-          <div className="relative flex justify-center items-center align-middle">
-            <div className=" absolute z-10 mt-2.5">
-            <HiSwitchHorizontal className='text-blue-500 text-4xl bg-white border border-white rounded-full p-2' id='switch' />
-            </div>
-          </div>
-
-          <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> To </label>
-            <input type="text" name="placeName" id="placeName" placeholder='Enter city or airport' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1 text-black font-bold' />
-          </div>
-
-          <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> Departure </label>
-            <input type="date" name="placeName" id="placeName" placeholder='Departure' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1' />
-          </div>
-          
-          <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> Return </label>
-            <input type="date" name="placeName" id="placeName" placeholder='Return' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1' />
-          </div>
-          
-          <div className="relative">
-            <label className='absolute left-10 px-1 bg-white text-l text-gray-500 font-medium'> Travellers & Class </label>
-            <input type="list" name="placeName" id="placeName" placeholder='1 Adult Economy' className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1' />
-          </div>
-        </form>
+        <Travel />
 
         {/* Special Fares section */}
 
-        <div className="special hidden md:flex items-center justify-evenly absolute z-1 mt-120" >
-          <div className="m-2">
-            <h1 className='font-bold'> Special Fares </h1>
-            <h1 className='bg-gradient-to-r from-indigo-400 to-indigo-800 p-2 rounded-md text-sm text-white font-bold'> EXTRA SAVINGS </h1>
-          </div>
-
-          <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">
-            <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" className='mr-2' /> Regular <p className='text-xs text-gray-500 font-medium ml-10'> Regular Fares </p> </label>
-          </div>
-          
-          <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
-            <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" className='mr-2' /> Student <p className='text-xs text-gray-500 font-medium ml-10'> Extra Discounts </p> </label>
-          </div>
-          
-          <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
-            <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" className='m-2 p-4'/> Senior Citizen <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p> </label>              
-          </div>
-          
-          <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">               
-            <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" className='m-2 p-4'/> Armed Forces <p className='text-xs text-gray-500 font-medium ml-10'> Exclusive Discounts </p> </label>          
-          </div>
-          
-          <div className="border-2 border-gray-300 rounded-xl pt-2 pb-2 pr-2 m-2">              
-            <label className='font-bold text-gray-800'> <input type="radio" name="specialfare" id="specialFare" className='m-2 p-4'/> Docter and Nurses <p className='text-xs text-gray-500 font-medium ml-1'> Exclusive Discounts </p> </label>             
-          </div>
+        <Fare />
+        
+        <div className="search">
+          <button id='search'className=' bg-gradient-to-r from-blue-400 to-blue-800 rounded-full p-4 px-12'> SEARCH </button>
         </div>
 
-          <div className="search">
-            <button id='search'className=' bg-gradient-to-r from-blue-400 to-blue-800 rounded-full p-4 px-12'> SEARCH </button>
-          </div>
       </section>
     </div>
   )
