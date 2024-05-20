@@ -4,9 +4,10 @@ import { FaHotel } from "react-icons/fa6";
 import { FaTrainSubway } from "react-icons/fa6";
 import { FaCarRear } from "react-icons/fa6";
 import { GiCommercialAirplane } from "react-icons/gi";
-import Nav from './Nav';
-import Travel from './Travel';
-import Fare from './Fare';
+import Nav from './components/Nav';
+import Travel from './components/Travel';
+import Fare from './components/Fare';
+import Signup from './components/Login/Signup';
 
 
 function App() { 
@@ -19,6 +20,7 @@ function App() {
       'images/1.jpg',
       'images/2.jpg',
       'images/3.jpg',
+      'images/4.jpg'
     ]
     
     const randomBg = Math.floor(Math.random() * imageURLs.length)

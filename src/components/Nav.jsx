@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import '../App.css'
 import { FaHotel } from "react-icons/fa6";
 import { FaTrainSubway } from "react-icons/fa6";
 import { FaCarRear } from "react-icons/fa6";
