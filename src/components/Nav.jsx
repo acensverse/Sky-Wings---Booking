@@ -27,7 +27,11 @@ function Nav() {
       <div className="accPart">
         <ul className='text-white text-sm md:text-xl p-4 flex items-center justify-center'>
           <li className='mr-4'> My Trips </li>
-          <li className='border border-blue-500 rounded-xl bg-blue-500 text-base font-bold'> <CgProfile className='mr-2'/> LOGIN / SIGNUP </li>
+          <li className='border border-blue-500 rounded-xl bg-blue-500 text-base font-bold'>
+            <Link to='/Signup' className='flex items-center justify-center'>
+             <CgProfile className='mr-2'/> LOGIN / SIGNUP
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

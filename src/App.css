@@ -4,22 +4,6 @@
   min-width: 100vw;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
-/* nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 10px;
-  width: 100%;
-} */
- /* .trips, .accinfo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-  padding: 1rem;
-  color: white;
-  font-size: larger;
- } */
 
  li {
   display: flex;
@@ -29,45 +13,9 @@
   font-weight: bold;
  }
 
-  /* .midPart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 15rem;
-  } */
-
-  /* section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-top: 5rem;
-  } */
-
-  /* .booking {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-
   #station {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    /* margin-bottom: 22rem; */
   }
-
-  /* #place {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    padding-top: 5rem;
-    padding-bottom: 10rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: white;
-    border-radius: 15px;
-    margin-top: 22rem;
-  } */
 
   input[type="radio"] {
     vertical-align: -1px;
@@ -77,30 +25,9 @@
     font-weight: bold;
   }
 
-  /* .specialfarebooking {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  } */
-
   #switch {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
-
-  /* .special {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    position: absolute;
-    z-index: 1;
-    margin-top: 30rem;
-    width: 1000px
-  } */
-
-  /* #specialFare {
-    padding: 3rem;
-  } */
 
   .search {
     display: flex;
