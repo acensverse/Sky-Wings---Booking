@@ -8,9 +8,22 @@ import Nav from './components/Nav';
 import Travel from './components/Travel';
 import Fare from './components/Fare';
 import Signup from './components/Login/Signup';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Flight from './components/Flight';
 
 
 function App() { 
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Nav/>
+    },
+
+  ])
+
+
+
   const [bgImage, setBgImage] = useState('')
   
   useEffect(() => {
@@ -33,7 +46,9 @@ function App() {
   return (
     <div className='app' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bgImage})` }}>
       
-      <Nav />
+      <RouterProvider router={router} />
+      
+      {/* <Nav /> */}
 
       {/* Mobile view Port Trip Section */}
 
