@@ -17,10 +17,10 @@ function Nav() {
       
       <div className="midPart, hidden ml-60 md:flex">
         <ul className='trips flex items-center justify-center list-none p-4 text-white text-xl'>
-          <li> <GiCommercialAirplane className='mr-2' /> Flights </li>
-          <li> <FaHotel className='mr-2'/> Hotels </li>
-          <li> <FaTrainSubway className='mr-2'/> Trains </li>
-          <li> <FaCarRear className='mr-2' /> Cabs </li>
+          <li> <img src="images/airplane.png" alt="" className='w-7 mx-2' /> Flights </li>
+          <li> <img src="images/hotel.png" alt="" className='w-7 mx-2'/> Hotels </li>
+          <li> <img src="images/train.png" alt="" className='w-7 mx-2' /> Trains </li>
+          <li> <img src="images/taxi.png" alt="" className='w-7 mx-2' />Cabs </li>
         </ul>
       </div>
 

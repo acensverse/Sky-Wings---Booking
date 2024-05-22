@@ -30,15 +30,7 @@
   }
 
   .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
     margin-top: 44rem;
-    color: white;
-    font-weight: bold;
-    font-size: x-large;
   }
 
   .cancel {
@@ -49,7 +41,7 @@
   @media screen and (max-width: 1170px) {
     .app {
       background: cover;
-      min-height: 100vh;
+      min-height: 100svh;
       min-width: 100vw;
     }
 
@@ -68,8 +60,6 @@
 
     .search {
       margin-top: 1rem;
-      margin-left: 7rem;
-      font-size: medium;
     }
 
     #search {

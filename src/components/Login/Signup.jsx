@@ -8,7 +8,7 @@ function Signup() {
     <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
-      <div className='md:absolute md:flex items-center justify-start md:p-20 md:ml-165 h-screen z-20'>
+      <div className='md:absolute md:flex items-center justify-start md:p-20 md:ml-165 h-svh z-20'>
 
         <Link to='/' className='hidden md:block'> <button>
           <IoMdClose className='cancel' />
