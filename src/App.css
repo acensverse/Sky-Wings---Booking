@@ -41,6 +41,11 @@
     font-size: x-large;
   }
 
+  .cancel {
+    @apply absolute ml-120 mb-165 p-1 bg-white rounded-full text-black text-xl
+  }
+
+
   @media screen and (max-width: 1170px) {
     .app {
       background: cover;
