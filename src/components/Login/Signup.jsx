@@ -6,15 +6,15 @@ import { IoMdClose } from "react-icons/io";
 function Signup() {
   return (
     <div>
-      <div className="fixed inset-0 bg-black opacity-50 z-20"></div>
+      <div className="md:fixed inset-0 bg-black opacity-50 z-20"></div>
 
-      <div className='absolute flex items-center justify-start p-20 ml-165 h-screen z-20'>
+      <div className='md:absolute md:flex items-center justify-start md:p-20 md:ml-165 h-screen z-20'>
 
-        <Link to='/'> <button>
+        <Link to='/' className='hidden md:block'> <button>
           <IoMdClose className='cancel' />
         </button> </Link>
 
-        <div className=' bg-white border rounded-xl flex flex-col items-center justify-evenly p-8 py-10'>
+        <div className=' bg-white border rounded-xl flex flex-col items-center justify-evenly p-8 md:py-10'>
         
           <h1 className='bg-blue-600 px-8 py-2 text-lg font-bold border rounded-full bg-gradient-to-r from-purple-400 to to-blue-800 text-white mb-8'> Sky Wings Account </h1>
 
@@ -42,7 +42,9 @@ function Signup() {
          
         </div>
       </div>
-      <Home className='z-0'/>
+      <div className='hidden md:block'>
+        <Home/>
+      </div>
     </div>
 
   )
