@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from '../Home'
 import { Link } from 'react-router-dom'
-import { ImCross } from "react-icons/im";
+import { IoMdClose } from "react-icons/io";
 
 function Signup() {
   return (
@@ -10,7 +10,9 @@ function Signup() {
 
       <div className='absolute flex items-center justify-start p-20 ml-165 h-screen z-20'>
 
-        <Link to='/'> <ImCross className='cancel' /> </Link>
+        <Link to='/'> <button>
+          <IoMdClose className='cancel' />
+        </button> </Link>
 
         <div className=' bg-white border rounded-xl flex flex-col items-center justify-evenly p-8 py-10'>
         

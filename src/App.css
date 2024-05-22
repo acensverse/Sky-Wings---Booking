@@ -42,7 +42,7 @@
   }
 
   .cancel {
-    @apply absolute ml-120 mb-165 p-1 bg-white rounded-full text-black text-xl
+    @apply absolute ml-120 top-60 p-1 bg-white rounded-full text-black text-2xl font-bold;
   }
 
 

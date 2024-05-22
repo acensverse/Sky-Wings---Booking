@@ -48,13 +48,6 @@ function App() {
     <div className='app' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${bgImage})` }}>
       
       <RouterProvider router={router} />
-      
-
-      {/* Mobile view Port Trip Section */}
-
-
-
-      {/* --------------------------------------------------------------------------------- */}
 
     </div>
   )
