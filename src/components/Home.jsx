@@ -16,7 +16,7 @@ function Home() {
         <Travel />
         <Fare />
         <div className="search md:absolute text-white font-bold md:text-2xl text-xl">
-          <button id='search'className=' bg-gradient-to-r from-blue-400 to-blue-800 rounded-full p-4 px-12'> SEARCH </button>
+          <button id='search'className='bg-gradient-to-r from-blue-400 to-blue-800 rounded-full p-4 px-12'> SEARCH </button>
         </div>
       </section>
       

@@ -3,6 +3,7 @@ import './App.css'
 import Signup from './components/Login/Signup';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
+import Registration from './components/Login/Registration';
 
 
 function App() { 
@@ -19,7 +20,11 @@ function App() {
     {
       path: '/test',
       element: <h1> Test </h1>
-    }
+    },
+    {
+      path: '/Registration',
+      element: <Registration/>
+    },
 
   ])
 

@@ -8,7 +8,7 @@ function Signup() {
     <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
-      <div className='md:absolute md:flex items-center justify-start md:p-20 md:ml-165 h-svh z-20'>
+      <div className='md:absolute md:flex items-center justify-start md:p-20 xl:ml-100 2xl:ml-165 h-svh z-20'>
 
         <Link to='/' className='hidden md:block'> <button>
           <IoMdClose className='cancel' />
@@ -32,7 +32,9 @@ function Signup() {
 
             <div className='flex flex-col w-full md:flex md:flex-row'>
               <input type="email" name="email" id="emailId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0' placeholder='Enter your email id'/>
-              <button className='py-2 px-8 bg-blue-800 text-white font-bold border rounded-md'> Continue </button>
+              <Link to ='/Registration'>
+                <button className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'> Continue </button>
+              </Link>
             </div>
 
             <div className='flex flex-col items-center justify-center'>
