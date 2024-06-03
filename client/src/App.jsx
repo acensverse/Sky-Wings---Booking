@@ -8,6 +8,8 @@ import Registration from './components/Login/Registration';
 
 function App() { 
 
+  const setUser = useState(null);
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -15,15 +17,7 @@ function App() {
     },
     {
       path: '/Signup',
-      element: <Signup/>
-    },
-    {
-      path: '/test',
-      element: <h1> Test </h1>
-    },
-    {
-      path: '/Registration',
-      element: <Registration/>
+      element: <Signup setUser={setUser} /> 
     },
 
   ])

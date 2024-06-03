@@ -3,9 +3,7 @@ import '../App.css'
 import { CgProfile } from "react-icons/cg";
 import { Link } from 'react-router-dom';
 
-function Nav() {
-
-  const [username, setUsername] = useState('Login / SignUp')
+function Nav({user}) {
 
   return (
     <nav className='relative md:static flex items-center justify-between md:justify-around'>
@@ -27,7 +25,7 @@ function Nav() {
           <li className='mr-4'> My Trips </li>
           <li className='border border-blue-500 rounded-xl bg-blue-500 md:text-base font-bold'>
             <Link to='/Signup' className='flex items-center justify-center'>
-             <CgProfile className='mr-2'/> {username}
+             <CgProfile className='mr-2'/> {user ? user.name : 'Login/Signup'}
             </Link>
           </li>
         </ul>

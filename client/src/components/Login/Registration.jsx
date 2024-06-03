@@ -19,7 +19,6 @@ function Registration() {
       
   }
 
-
   return (
     <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>

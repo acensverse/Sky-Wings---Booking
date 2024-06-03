@@ -4,17 +4,31 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';
 
-function Signup() {
+function Signup({setUser}) {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('')
+  const [number, setNumber] = useState('')
+  const [pass, setPass] = useState('')
   const [page, setPage] = useState(true);
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/Signup', { email })
+
+    const data = page? {email} : {email, name, number, pass}
+
+    axios.post('http://localhost:5000/Signup', data)
       .then(result => {
         console.log(result);
-        setPage(false);
+        if (page) {
+          setPage(false);
+        } else {
+          navigate('/')
+          setUser(result.data)
+        }
+        
       })
+      
       .catch(err => console.log(err));
   };
 
@@ -23,7 +37,7 @@ function Signup() {
   };
 
   return (
-    <div id='emailSignUp'>
+    <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
       <div className='md:absolute md:flex items-center justify-start md:p-20 xl:ml-100 2xl:ml-165 h-svh z-20'>
@@ -106,7 +120,7 @@ function Signup() {
                     <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full' placeholder='Enter your mobile number' required onChange={(e) => setNumber(e.target.value)} />
 
                     <span className='mb-2 text-sm font-medium mr-72 mt-4' > Password </span>
-                    <input type='password' name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4' placeholder='Enter your password' required onChange={(e) => setNumber(e.target.value)} />
+                    <input type='password' name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4' placeholder='Enter your password' required onChange={(e) => setPass(e.target.value)} />
                     
                     <button type='submit' className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'> Save & Continue </button>
                   </form>
