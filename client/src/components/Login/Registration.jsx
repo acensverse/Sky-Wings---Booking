@@ -1,20 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Home from '../Home'
 import { IoMdClose } from "react-icons/io";
+import axios from 'axios';
 
 function Registration() {
+
+  const [name, setName] = useState('')
+  const [number, setNumber] = useState('')
+  const navigate = useNavigate()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:5000/Registration', { name, number })
+      .then(result => console.log(result))
+      navigate('/')
+      .catch(err => console.log(err))  
+      
+  }
+
+
   return (
     <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
       <div className='md:absolute md:flex items-center justify-start md:p-20 xl:ml-100 2xl:ml-165 h-svh z-20'>
 
-        <Link to='/' className='hidden md:block'> <button>
-          <IoMdClose className='cancel' />
-        </button> </Link>
-
-        {/* </form> */}
+        <Link to='/' className='hidden md:block'>
+          <button>
+            <IoMdClose className='cancel' />
+          </button>
+        </Link>
 
         <div className=' bg-white border rounded-xl flex flex-col items-start justify-start md:justify-evenly md:p-8 md:py-10 h-full md:h-auto '>
 
@@ -30,15 +46,15 @@ function Registration() {
               
             </div>
 
-            <div className='flex flex-col w-full md:flex md:flex-col'>
+            <form onSubmit={handleSubmit} className='flex flex-col w-full md:flex md:flex-col'>
               <span className='mb-2 text-sm font-medium mr-72' > Full Name </span>
-              <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0' placeholder='Enter your name ' />
+              <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0' placeholder='Enter your name' required onChange={(e) => setName(e.target.value)} />
               
               <span className='mb-2 text-sm font-medium mr-72 mt-4' > Mobile No.: </span>
-              <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4' placeholder='Enter your mobile number' />
+              <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4' placeholder='Enter your mobile number' required onChange={(e) => setNumber(e.target.value)} />
               
-              <button className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'> Save & Continue </button>
-            </div>
+              <button type='submit' className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'> Save & Continue </button>
+            </form>
 
             <div className='flex flex-col items-center justify-center mt-8'>
               <span className='text-xs text-gray-400'> By proceeding you agree to Sky Wings's <Link className='text-red-500'> T&Cs </Link> and <Link className='text-red-500'> Privacy </Link> </span>

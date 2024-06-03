@@ -29,7 +29,6 @@ function App() {
   ])
 
 
-
   const [bgImage, setBgImage] = useState('')
   
   useEffect(() => {
