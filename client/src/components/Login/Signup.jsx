@@ -18,7 +18,7 @@ function Signup({setUser}) {
 
     const data = page? {email} : {email, name, number, pass}
 
-    axios.post('https://sky-wings-booking.vercel.app/Signup', data)
+    axios.post('http://192.168.29.43:5000/Signup', data)
       .then(result => {
         console.log(result);
         if (page) {
