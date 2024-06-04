@@ -17,7 +17,6 @@ mongoose.connect("mongodb+srv://Ace:Ace123@cluster0.y5dyrlw.mongodb.net/user", {
 });
 
 app.post('/Signup', (req, res) => {
-  res.send("Working")
   UserModel.create(req.body)
     .then(user => res.json(user))
     .catch(err => res.json({ error: err.message }));
