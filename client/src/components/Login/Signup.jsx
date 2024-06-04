@@ -18,7 +18,7 @@ function Signup({setUser}) {
 
     const data = page? {email} : {email, name, number, pass}
 
-    axios.post('http://192.168.29.43:5000/Signup', data)
+    axios.post('http://localhost/Signup', data)
       .then(result => {
         console.log(result);
         if (page) {
