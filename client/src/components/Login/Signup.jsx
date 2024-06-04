@@ -14,10 +14,11 @@ function Signup({setUser}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Form submitted from mobile device');
 
     const data = page? {email} : {email, name, number, pass}
 
-    axios.post('http://localhost:5000/Signup', data)
+    axios.post('https://sky-wings-booking.vercel.app/Signup', data)
       .then(result => {
         console.log(result);
         if (page) {
@@ -72,14 +73,13 @@ function Signup({setUser}) {
                     type="email"
                     name="email"
                     id="emailId"
+                    required
                     className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0'
                     placeholder='Enter your email id'
-                    required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button
                     type='submit'
-                    required
                     className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'>
                     Continue
                   </button>
@@ -99,9 +99,10 @@ function Signup({setUser}) {
               </div>
             </>
           ) : (    // Name , Email and Password Section
-              <div className='px-8'>
+              <div className='md:px-8'>
                 <Link to='/Signup'>
-                  <button className='text-red-500 mb-4 mr-80 '
+                  <button
+                    className='text-red-500 mb-4 mr-80 '
                     onClick={togglePage}>
                     Back
                   </button>
@@ -111,15 +112,15 @@ function Signup({setUser}) {
                     <h1 className='font-bold text-3xl text-gray-700 mb-8'> Your Account Details </h1>                 
                   </div>
 
-                  <form onSubmit={handleSubmit} className='flex flex-col w-full md:flex md:flex-col'>
+                  <form onSubmit={handleSubmit} className='flex flex-col md:flex md:flex-col'>
                     <span className='mb-2 text-sm font-medium mr-72' > Full Name </span>
-                    <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0' placeholder='Enter your name' required onChange={(e) => setName(e.target.value)} />
+                    <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full' placeholder='Enter your name' required onChange={(e) => setName(e.target.value)} />
                     
                     <span className='mb-2 text-sm font-medium mr-72 mt-4' > Mobile No. </span>
                     <input type="text" name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full' placeholder='Enter your mobile number' required onChange={(e) => setNumber(e.target.value)} />
 
                     <span className='mb-2 text-sm font-medium mr-72 mt-4' > Password </span>
-                    <input type='password' name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4' placeholder='Enter your password' required onChange={(e) => setPass(e.target.value)} />
+                    <input type='password' name="text" id="textId" className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-8' placeholder='Enter your password' required onChange={(e) => setPass(e.target.value)} />
                     
                     <button type='submit' className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'> Save & Continue </button>
                   </form>
