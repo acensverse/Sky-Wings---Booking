@@ -79,6 +79,7 @@ function Signup({setUser}) {
                   />
                   <button
                     type='submit'
+                    onClick={handleSubmit}
                     required
                     className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'>
                     Continue
