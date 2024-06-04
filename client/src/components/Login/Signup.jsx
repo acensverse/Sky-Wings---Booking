@@ -24,7 +24,6 @@ function Signup({setUser}) {
           setPage(false);
         } else {
           navigate('/')
-          setUser(result.data)
         }
         
       })
