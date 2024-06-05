@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Home from '../Home';
 import { IoMdClose } from "react-icons/io";
-import axios from 'axios';
+import axios from '../../api/axios';'
 
 const Login = () => {
 
