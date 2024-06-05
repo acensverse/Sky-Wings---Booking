@@ -97,7 +97,7 @@ function Travel() {
           placeholder='1 Adult Economy'
           className='border-2 border-gray-300 rounded-xl p-8 mt-3 mx-1'
         />
-        
+
       </div>
     </form>
   )

@@ -45,7 +45,7 @@
       min-width: 100vw;
     }
 
-    #placeName {
+    #airport1, #airport2, #departure, #return, #travel {
       width: 100%;
       padding: 1rem;
       margin-top: 0.5rem;

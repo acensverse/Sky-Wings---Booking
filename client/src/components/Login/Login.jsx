@@ -24,7 +24,7 @@ const Login = () => {
         }
       })
       .catch(err => {
-        setErrMsg("Failed to Login")
+        setErrMsg("Failed to Login. Invaild Email or Password")
         console.log(err)
       }) 
       
