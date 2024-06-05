@@ -73,7 +73,7 @@ const Login = () => {
                 type='submit'
                 className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'
               >
-                Save & Continue
+                Login
               </button>
             </form>
 
