@@ -53,7 +53,7 @@ function Signup() {
     e.preventDefault();
     console.log('Form submitted from mobile device');
 
-    const data = page ? { email } : { email, name: user, number, pass: pwd };
+    const data = page ? { email } : { email, name: user, number: num, pass: pwd };
 
     try {
       const result = await axios.post('https://sky-wings-booking-server.vercel.app/Signup', data);
