@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Home from '../Home';
 import { IoMdClose } from "react-icons/io";
+import axios from 'axios';
 
 const Login = () => {
 
-  const [name, setName] = useState('')
-  const [number, setNumber] = useState('')
+  const [errMsg, setErrMsg] = useState('')
+
+  const [email, setEmail] = useState('')
+  const [pwd, setPwd] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://sky-wings-booking-server.vercel.app/Login', { name, number })
-      .then(result => console.log(result))
-      navigate('/')
-      .catch(err => console.log(err))  
+    axios.post('/Login', { email, pass: pwd })
+      .then(result => {
+        console.log(result)
+        if (result.data === 'Success') {
+        navigate('/')
+        } else {
+          setErrMsg("Invaild Email or Password")
+        }
+      })
+      .catch(err => {
+        setErrMsg("Failed to Login")
+        console.log(err)
+      }) 
       
   }
 
@@ -47,27 +59,29 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleSubmit} className='flex flex-col w-full'>
-              <span className='mb-2 text-sm font-medium mr-72'>Full Name</span>
+              <span className='mb-2 text-sm font-medium mr-72'>Email Address</span>
               <input
-                type="text"
+                type="email"
                 name="text"
-                id="textId"
+                id="email"
                 className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0'
-                placeholder='Enter your name'
+                placeholder='Enter your email id'
                 required
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
-              <span className='mb-2 text-sm font-medium mr-72 mt-4'>Mobile No.:</span>
+              <span className='mb-2 text-sm font-medium mr-72 mt-4'>Password</span>
               <input
-                type="text"
+                type="password"
                 name="text"
                 id="textId"
                 className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4'
                 placeholder='Enter your mobile number'
                 required
-                onChange={(e) => setNumber(e.target.value)}
+                onChange={(e) => setPwd(e.target.value)}
               />
+
+              {errMsg && <p className="text-red-500 mb-4">{errMsg}</p>}
 
               <button
                 type='submit'

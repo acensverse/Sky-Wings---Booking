@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Home from '../Home';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
-import axios from 'axios';
+import axios from '../../api/axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,15}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const NUM_REGEX = /^\d{10}$/
 
 function Signup() {
+  
+  const errRef = useRef()
+
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
@@ -26,7 +29,7 @@ function Signup() {
   const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   const [email, setEmail] = useState('');
   const [page, setPage] = useState(true);
@@ -51,12 +54,12 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted from mobile device');
+    console.log('Form submitted');
 
     const data = page ? { email } : { email, name: user, number: num, pass: pwd };
 
     try {
-      const result = await axios.post('https://sky-wings-booking-server.vercel.app/Signup', data);
+      const result = await axios.post('/Signup', data);
       console.log(result);
       if (page) {
         setPage(false);
@@ -64,7 +67,22 @@ function Signup() {
         navigate('/');
       }
     } catch (err) {
-      console.log(err);
+      if (err.response && err.response.data && err.response.data.error === 'User already exists') {
+        // If the error response indicates that the user already exists,
+        // automatically log in the user
+        try {
+          const loginResult = await axios.post('/Login', { name: user, number: num });
+          console.log(loginResult);
+          // Proceed with your login logic, e.g., set user data in state
+          navigate('/');
+        } catch (loginErr) {
+          setErrMsg('Failed to log in. Please try again.');
+          console.log(loginErr);
+        }
+      } else {
+        setErrMsg('Failed to submit the form. Please try again.');
+        console.log(err);
+      }
     }
   };
 
@@ -122,7 +140,7 @@ function Signup() {
                   <button
                     type='submit'
                     className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'>
-                    Continue
+                    Register
                   </button>
                 </form>
 
@@ -161,6 +179,8 @@ function Signup() {
                 <div className='flex flex-col items-start justify-center'>
                   <h1 className='font-bold text-3xl text-gray-700 mb-8'> Your Account Details </h1>
                 </div>
+                  
+                <p ref={errRef} className={errMsg ? "text-red-500 my-2" : "offscreen"} aria-live="assertive">{errMsg}</p>
 
                 <form onSubmit={handleSubmit} className='flex flex-col md:flex md:flex-col'>
                   <label htmlFor="name" className='mb-2 text-sm font-medium mr-72'> Full Name </label>
@@ -252,10 +272,14 @@ function Signup() {
 
                   <button
                     type='submit'
-                    disabled={!validName ||!validNum || !validPwd || !validMatch}
+                    disabled={!validName || !validNum || !validPwd || !validMatch}
+                    onClick={() => {
+                      if (!validName || !validNum || !validPwd || !validMatch) {
+                        setErrMsg('Please fill out all fields correctly.')
+                      }
+                    }}  
                     className={`py-2 px-8 text-white font-bold border rounded-md 
                     ${!validName || !validNum || !validPwd || !validMatch ? 'bg-gray-300' : 'bg-blue-500'}`}>
-
                       Save & Continue                      
                   </button>
                     

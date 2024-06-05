@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const UserModel = require('./models/User.js');
+const User = require('./models/User.js');
 const app = express();
 
 app.use(express.json());
@@ -23,9 +24,15 @@ app.post('/Signup', (req, res) => {
 });
 
 app.post('/Login', (req, res) => {
-  UserModel.create(req.body)
-    .then(user => res.json(user))
-    .catch(err => res.json({ error: err.message }));
+  const { email, pass } = req.body
+  User.findOne({email: email})
+    .then(user => {
+      if (user.pass === pass) {
+        res.json("Success")
+      } else {
+        res.json("The Passowrd is incorrect")
+      }
+    })
 });
 
 

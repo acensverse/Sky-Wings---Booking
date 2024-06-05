@@ -4,7 +4,7 @@ import Signup from './components/Login/Signup';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login/Login';
-import Registration from './components/Login/Registration';
+
 
 
 function App() { 
@@ -24,10 +24,10 @@ function App() {
       path: '/Login',
       element: <Login/> 
     },
-    {
-      path: '/Registration',
-      element: <Registration/> 
-    },
+    // {
+    //   path: '/Registration',
+    //   element: <Registration/> 
+    // },
 
 
   ])
