@@ -3,6 +3,7 @@ import './App.css'
 import Signup from './components/Login/Signup';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
+import Login from './components/Login/Login';
 import Registration from './components/Login/Registration';
 
 
@@ -19,6 +20,15 @@ function App() {
       path: '/Signup',
       element: <Signup setUser={setUser} /> 
     },
+    {
+      path: '/Login',
+      element: <Login/> 
+    },
+    {
+      path: '/Registration',
+      element: <Registration/> 
+    },
+
 
   ])
 
