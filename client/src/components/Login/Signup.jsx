@@ -6,11 +6,16 @@ import axios from '../../api/axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,15}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/
 const NUM_REGEX = /^\d{10}$/
 
 function Signup() {
   
   const errRef = useRef()
+
+  const [email, setEmail] = useState('')
+  const [validEmail, setValidEmail] = useState(false)
+  const [emailFocus, setEmailFocus] = useState(false)
 
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
@@ -30,11 +35,13 @@ function Signup() {
 
   const [errMsg, setErrMsg] = useState('');
   // const [success, setSuccess] = useState(false);
-
-  const [email, setEmail] = useState('');
   const [page, setPage] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setValidEmail(EMAIL_REGEX.test(email))
+  }, [email])
+  
   useEffect(() => {
     setValidName(USER_REGEX.test(user));
   }, [user]);
@@ -50,7 +57,7 @@ function Signup() {
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pwd, matchPwd]);
+  }, [email, user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,33 +65,32 @@ function Signup() {
 
     const data = page ? { email } : { email, name: user, number: num, pass: pwd };
 
+    const verify = EMAIL_REGEX.test(email)
+    if (!verify) {
+      page ? setErrMsg("Invalid Email Address. Please Try again") : {}
+      return
+    }
+
     try {
       const result = await axios.post('/Signup', data);
       console.log(result);
       if (page) {
         setPage(false);
       } else {
-        navigate('/');
+        if (result.data.message === "Email Already exists") {
+          setErrMsg("Email already exists. Try Login")
+          setTimeout(() => {
+            navigate('/Login')
+          },1500)
+        } else {
+          navigate('/')
+        }
       }
     } catch (err) {
-      if (err.response && err.response.data && err.response.data.error === 'User already exists') {
-        // If the error response indicates that the user already exists,
-        // automatically log in the user
-        try {
-          const loginResult = await axios.post('/Login', { name: user, number: num });
-          console.log(loginResult);
-          // Proceed with your login logic, e.g., set user data in state
-          navigate('/');
-        } catch (loginErr) {
-          setErrMsg('Failed to log in. Please try again.');
-          console.log(loginErr);
-        }
-      } else {
-        setErrMsg('Failed to submit the form. Please try again.');
-        console.log(err);
-      }
+      setErrMsg('Failed to submit the form. Please try again.');
+      console.log(err);
     }
-  };
+  }
 
   const togglePage = () => {
     setPage(!page);
@@ -133,15 +139,30 @@ function Signup() {
                     name="email"
                     id="emailId"
                     required
-                    className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4'
+                    className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-2'
                     placeholder='Enter your email id'
+                    value={email}
+                    aria-invalid={validEmail ? "false" : "true"}
+                    aria-describedby="emailnote"
+                    onFocus={() => setEmailFocus(true)}
+                    onBlur={() => setEmailFocus(false)}
                     onChange={(e) => setEmail(e.target.value)}
                   />
+
+                  <p ref={errRef} className={errMsg ? "text-red-500 my-2" : "offscreen"} aria-live="assertive">{errMsg}</p>
+
+                  {emailFocus && email && !validEmail && (
+                    <p id='emailnote' className='text-red-500 my-2'>
+                      Invalid Email Address
+                    </p>
+                  )}
+
                   <button
                     type='submit'
-                    className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'>
+                    className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md mt-2'>
                     Register
                   </button>
+
                 </form>
 
                 <Link to={'/Login'} className='w-full'>
@@ -168,13 +189,13 @@ function Signup() {
             </>
           ) : (
             <div className='md:px-8'>
-              <Link to='/Signup'>
+              
                 <button
                   className='text-red-500 mb-4 mr-80'
                   onClick={togglePage}>
                   Back
                 </button>
-              </Link>
+              
               <div className='flex flex-col items-center justify-evenly'>
                 <div className='flex flex-col items-start justify-center'>
                   <h1 className='font-bold text-3xl text-gray-700 mb-8'> Your Account Details </h1>
