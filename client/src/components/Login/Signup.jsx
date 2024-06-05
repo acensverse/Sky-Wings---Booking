@@ -4,13 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios';
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,15}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const NUM_REGEX = /^\d{10}$/
 
 function Signup() {
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
+
+  const [num, setNum] = useState('')
+  const [validNum, setValidNum] = useState(false)
+  const [numFocus, setNumFocus] = useState(false)
 
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
@@ -24,13 +29,16 @@ function Signup() {
   const [success, setSuccess] = useState(false);
 
   const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
   const [page, setPage] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     setValidName(USER_REGEX.test(user));
   }, [user]);
+
+  useEffect(() => {
+    setValidNum(NUM_REGEX.test(num))
+  },[num])
 
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
@@ -178,15 +186,26 @@ function Signup() {
                     </p>
                   )}
 
-                  <label className='mb-2 text-sm font-medium mr-72 mt-4'> Mobile No. </label>
+                  <label htmlFor='num' className='mb-2 text-sm font-medium mr-72 mt-4'> Mobile No. </label>
                   <input
                     type="text"
-                    id="textId"
+                    id="num"
                     className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full'
                     placeholder='Enter your mobile number'
                     required
-                    onChange={(e) => setNumber(e.target.value)}
+                    autoComplete='off'  
+                    value={num}
+                    aria-invalid={validNum ? "false" : "true"}
+                    aria-describedby='numnote' 
+                    onFocus={() => setNumFocus(true)}
+                    onBlur={() => setNumFocus(false)}
+                    onChange={(e) => setNum(e.target.value)}
                   />
+                    {numFocus && num && !validNum && (
+                      <p id='numnote' className='text-red-500 mt-2'>
+                        Mobile Number should be 10 digits
+                      </p>
+                  )} 
 
                   <label htmlFor='password' className='mb-2 text-sm font-medium mr-72 mt-4'> Password </label>
                   <input
@@ -227,16 +246,19 @@ function Signup() {
                   />
                   {matchFocus && !validMatch && (
                     <p id="confirmnote" className="text-red-500 my-2">
-                      Must match the first password input field.
+                      Password does not match
                     </p>
                   )}
 
                   <button
                     type='submit'
-                    disabled={!validName || !validPwd || !validMatch}
-                    className='py-2 px-8 bg-blue-500 text-white font-bold border rounded-md'>
-                    Save & Continue
+                    disabled={!validName ||!validNum || !validPwd || !validMatch}
+                    className={`py-2 px-8 text-white font-bold border rounded-md 
+                    ${!validName || !validNum || !validPwd || !validMatch ? 'bg-gray-300' : 'bg-blue-500'}`}>
+
+                      Save & Continue                      
                   </button>
+                    
                 </form>
 
                 <div className='flex flex-col items-center justify-center mt-8'>
