@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:5000/Registration', { name, number })
+    axios.post('https://sky-wings-booking-server.vercel.app/Login', { name, number })
       .then(result => console.log(result))
       navigate('/')
       .catch(err => console.log(err))  

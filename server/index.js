@@ -22,6 +22,12 @@ app.post('/Signup', (req, res) => {
     .catch(err => res.json({ error: err.message }));
 });
 
+app.post('/Login', (req, res) => {
+  UserModel.create(req.body)
+    .then(user => res.json(user))
+    .catch(err => res.json({ error: err.message }));
+});
+
 
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
