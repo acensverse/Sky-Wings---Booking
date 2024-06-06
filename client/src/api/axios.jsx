@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://sky-wings-booking-server.vercel.app'
+    baseURL: 'http://192.168.29.43:5000'
 });

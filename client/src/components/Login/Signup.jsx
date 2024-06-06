@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import Home from '../Home';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
+import { BiSolidErrorCircle } from "react-icons/bi";
+import { FaCheckCircle } from "react-icons/fa";
 import axios from '../../api/axios';
+
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,15}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -133,7 +136,13 @@ function Signup() {
 
                 <form onSubmit={handleSubmit} className='flex flex-col w-full'>
 
-                  <label htmlFor='emailId' className='mb-2 text-sm font-medium mr-72 md:left-10'> Email Address </label>
+                  <label
+                    htmlFor='emailId'
+                    className='mb-2 text-sm font-medium mr-72 md:left-10 flex flex-row'>
+                    Email Address
+                    <FaCheckCircle className={`${validEmail ? "text-green-500" : "hidden"} text-lg ml-2`} />
+                    <BiSolidErrorCircle className={ `${validEmail || !email ? "hidden" : "text-red-500"} text-lg ml-2` }/>
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -204,7 +213,14 @@ function Signup() {
                 <p ref={errRef} className={errMsg ? "text-red-500 my-2" : "offscreen"} aria-live="assertive">{errMsg}</p>
 
                 <form onSubmit={handleSubmit} className='flex flex-col md:flex md:flex-col'>
-                  <label htmlFor="name" className='mb-2 text-sm font-medium mr-72'> Full Name </label>
+                  
+                  <label 
+                    htmlFor="name"
+                    className='mb-2 text-sm font-medium mr-72 flex flex-row'>
+                    Full Name
+                    <FaCheckCircle className={`${validName ? "text-green-500" : "hidden"} text-lg ml-2`} />
+                    <BiSolidErrorCircle className={ `${validName || !user ? "hidden" : "text-red-500"} text-lg ml-2` }/>
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -227,7 +243,13 @@ function Signup() {
                     </p>
                   )}
 
-                  <label htmlFor='num' className='mb-2 text-sm font-medium mr-72 mt-4'> Mobile No. </label>
+                  <label
+                    htmlFor='num'
+                    className='mb-2 text-sm font-medium mr-72 mt-4 flex flex-row'>
+                    Mobile No.
+                    <FaCheckCircle className={`${validNum ? "text-green-500" : "hidden"} text-lg ml-2`} />
+                    <BiSolidErrorCircle className={ `${validNum || !num ? "hidden" : "text-red-500"} text-lg ml-2` }/>
+                  </label>
                   <input
                     type="text"
                     id="num"
@@ -248,7 +270,13 @@ function Signup() {
                       </p>
                   )} 
 
-                  <label htmlFor='password' className='mb-2 text-sm font-medium mr-72 mt-4'> Password </label>
+                  <label
+                    htmlFor='password'
+                    className='mb-2 text-sm font-medium mr-72 mt-4 flex flex-row'>
+                    Password
+                    <FaCheckCircle className={`${validPwd ? "text-green-500" : "hidden"} text-lg ml-2`} />
+                    <BiSolidErrorCircle className={ `${validPwd || !pwd ? "hidden" : "text-red-500"} text-lg ml-2` }/>
+                  </label>
                   <input
                     type='password'
                     id="password"
@@ -271,7 +299,13 @@ function Signup() {
                     </p>
                   )}
 
-                  <label htmlFor='confirm_pwd' className='mb-2 text-sm font-medium mr-72 mt-4'> Confirm </label>
+                  <label
+                    htmlFor='confirm_pwd'
+                    className='mb-2 text-sm font-medium mr-72 mt-4 flex flex-row'>
+                    Confirm
+                    <FaCheckCircle className={`${validMatch && matchPwd ? "text-green-500" : "hidden"} text-lg ml-2`} />
+                    <BiSolidErrorCircle className={ `${validMatch || !matchPwd ? "hidden" : "text-red-500"} text-lg ml-2` }/>
+                  </label>
                   <input
                     type='password'
                     id="confirm_pwd"
