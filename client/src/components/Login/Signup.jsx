@@ -140,8 +140,6 @@ function Signup() {
                     htmlFor='emailId'
                     className='mb-2 text-sm font-medium mr-72 md:left-10 flex flex-row'>
                     Email Address
-                    <FaCheckCircle className={`${validEmail ? "text-green-500" : "hidden"} text-lg ml-2`} />
-                    <BiSolidErrorCircle className={ `${validEmail || !email ? "hidden" : "text-red-500"} text-lg ml-2` }/>
                   </label>
                   <input
                     type="email"
