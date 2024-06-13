@@ -6,10 +6,7 @@ import Home from './components/Home';
 import Login from './components/Login/Login';
 
 
-
 function App() { 
-
-  const setUser = useState(null);
 
   const router = createBrowserRouter([
     {
@@ -18,18 +15,12 @@ function App() {
     },
     {
       path: '/Signup',
-      element: <Signup setUser={setUser} /> 
+      element: <Signup/> 
     },
     {
       path: '/Login',
       element: <Login/> 
     },
-    // {
-    //   path: '/Registration',
-    //   element: <Registration/> 
-    // },
-
-
   ])
 
 

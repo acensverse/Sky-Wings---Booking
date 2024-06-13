@@ -1,9 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../App.css'
 import { CgProfile } from "react-icons/cg";
 import { Link } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
-function Nav({user}) {
+function Nav() {
+
+  const { auth } = useContext(AuthContext)
+
+  const [dropdownVisible, setdropdownVisible] = useState(false)
+
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    setdropdownVisible(!dropdownVisible)
+  }
+
+  const closeDropdown = () => {
+    setdropdownVisible(false);
+  };
 
   return (
     <nav className='relative md:static flex items-center justify-between md:justify-around'>
@@ -24,9 +38,44 @@ function Nav({user}) {
         <ul className='text-white text-sm md:text-xl p-4 flex items-center justify-center'>
           <li className='mr-4'> My Trips </li>
           <li className='border border-blue-500 rounded-xl bg-blue-500 md:text-base font-bold'>
-            <Link to='/Signup' className='flex items-center justify-center'>
-             <CgProfile className='mr-2'/> {user ? user.name : 'Login/Signup'}
-            </Link>
+
+            {auth ? (
+              <>
+                <button
+                  onClick={toggleDropdown}
+                  aria-haspopup="true" 
+                  aria-expanded={dropdownVisible} 
+                  className='border border-blue-500 rounded-xl bg-blue-500 md:text-base font-bold flex items-center justify-center'
+                >
+                  <CgProfile className='mr-2'/> {auth.user}
+                </button>
+
+                {dropdownVisible && (
+                   <div className='absolute right-18 mt-52 bg-white rounded-md shadow-lg py-4 z-50 flex flex-col items-center justify-center w-48'>
+
+                   <Link to='/profile'
+                      onClick={closeDropdown}
+                      className='my-1 text-gray-800 hover:text-purple-600'>
+                     My Profile
+                   </Link>
+                   <Link to='/settings'
+                      onClick={closeDropdown}
+                      className='my-1 text-gray-800 hover:text-purple-600'>
+                     Settings
+                   </Link>
+                   <button className='my-1 text-gray-800 hover:text-purple-600'>
+                     Logout
+                   </button>
+                 </div>
+                )}
+              </>
+            ):(
+            
+              <Link to='/Signup' className='flex items-center justify-center'>
+              <CgProfile className='mr-2'/> {auth ? auth.user : 'Login/Signup'}
+              </Link>  
+                
+             )}
           </li>
         </ul>
       </div>

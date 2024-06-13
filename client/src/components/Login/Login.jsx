@@ -1,42 +1,48 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Home from '../Home';
 import { IoMdClose } from "react-icons/io";
 import axios from '../../api/axios';
+import AuthContext from '../../context/AuthContext';
 
 const Login = () => {
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const [errMsg, setErrMsg] = useState('')
+  const [errMsg, setErrMsg] = useState('');
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
 
-  const [email, setEmail] = useState('')
-  const [pwd, setPwd] = useState('')
-  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const result = await axios.post('/Login', { email, pass: pwd });
+      console.log(result);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post('/Login', { email, pass: pwd })
-      .then(result => {
-        console.log(result)
-        if (result.data === 'Success') {
-        navigate('/')
-        } else {
-          setErrMsg("Invaild Email or Password")
-        }
-      })
-      .catch(err => {
-        setErrMsg("Failed to Login. Invaild Email or Password")
-        console.log(err)
-      }) 
-      
-  }
+      const accesstoken = result?.data?.accesstoken;
+      const roles = result?.data?.roles;
+
+      if (result.data === 'Success') {
+        setAuth({ user: email, pwd, roles, accesstoken });
+        setEmail('');
+        setPwd('');
+        navigate('/');
+      } else {
+        setErrMsg("Invalid Email or Password");
+      }
+    } catch (err) {
+      setErrMsg("Failed to Login. Please try again.");
+      console.error(err);
+    }
+  };
 
   return (
     <div>
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
       <div className='md:absolute md:flex items-center justify-start md:p-20 xl:ml-100 2xl:ml-165 h-svh z-20'>
-
-        <div className='bg-white border rounded-xl flex flex-col items-start justify-start md:justify-evenly px-4  md:p-8 md:py-10 h-full md:h-auto'>
+        <div className='bg-white border rounded-xl flex flex-col items-start justify-start md:justify-evenly px-4 md:p-8 md:py-10 h-full md:h-auto'>
 
           <Link to='/' className='md:hidden'>
             <button>
@@ -59,24 +65,30 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleSubmit} className='flex flex-col w-full'>
-              <span className='mb-2 text-sm font-medium mr-72'>Email Address</span>
+              <label htmlFor='email' className='mb-2 text-sm font-medium mr-72'>
+                Email Address
+              </label>
               <input
                 type="email"
                 name="text"
                 id="email"
+                value={email}
                 className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0'
                 placeholder='Enter your email id'
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <span className='mb-2 text-sm font-medium mr-72 mt-4'>Password</span>
+              <label htmlFor='textId' className='mb-2 text-sm font-medium mr-72 mt-4'>
+                Password
+              </label>
               <input
                 type="password"
                 name="text"
                 id="textId"
+                value={pwd}
                 className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-4'
-                placeholder='Enter your mobile number'
+                placeholder='Enter your password'
                 required
                 onChange={(e) => setPwd(e.target.value)}
               />

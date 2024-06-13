@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Home from '../Home';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMdClose } from "react-icons/io";
 import { BiSolidErrorCircle } from "react-icons/bi";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from '../../api/axios';
+import AuthContext from '../../context/AuthContext';
 
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,15}$/;
@@ -14,6 +15,8 @@ const NUM_REGEX = /^\d{10}$/
 
 function Signup() {
   
+  const {setAuth} = useContext(AuthContext)
+
   const errRef = useRef()
 
   const [email, setEmail] = useState('')
@@ -86,6 +89,11 @@ function Signup() {
             navigate('/Login')
           },1500)
         } else {
+          const accesstoken = result?.data?.accesstoken;
+          const roles = result?.data?.roles;
+          setAuth({ user, pwd, roles, accesstoken })
+          setEmail('')
+          setPwd('')
           navigate('/')
         }
       }
