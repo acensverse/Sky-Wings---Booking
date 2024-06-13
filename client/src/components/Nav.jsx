@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import '../App.css'
 import { CgProfile } from "react-icons/cg";
+import { IoMdClose } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
@@ -51,19 +52,25 @@ function Nav() {
                 </button>
 
                 {dropdownVisible && (
-                   <div className='absolute right-18 mt-52 bg-white rounded-md shadow-lg py-4 z-50 flex flex-col items-center justify-center w-48'>
+                   <div className='absolute md:right-18 right-16 md:mt-52 md:bg-white bg-black/75 inset-0 h-svh w-full md:h-auto md:inset-auto  md:rounded-md md:shadow-lg md:py-4 z-50 flex flex-col items-center justify-center md:w-48'>
+                    
+                    
+                      <button onClick={toggleDropdown} className='md:hidden'>
+                        <IoMdClose className='cancel text-white text-6xl' />
+                      </button>
+                  
 
                    <Link to='/profile'
                       onClick={closeDropdown}
-                      className='my-1 text-gray-800 hover:text-purple-600'>
+                      className='md:my-1 my-8 md:text-gray-800 text-4xl md:text-lg text-white hover:text-purple-600'>
                      My Profile
                    </Link>
                    <Link to='/settings'
                       onClick={closeDropdown}
-                      className='my-1 text-gray-800 hover:text-purple-600'>
+                      className='md:my-1 my-8 md:text-gray-800 text-4xl md:text-lg text-white hover:text-purple-600'>
                      Settings
                    </Link>
-                   <button className='my-1 text-gray-800 hover:text-purple-600'>
+                   <button className='md:my-1 my-8 md:text-gray-800 text-4xl md:text-lg text-white hover:text-purple-600'>
                      Logout
                    </button>
                  </div>
