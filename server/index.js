@@ -37,8 +37,12 @@ app.post('/Login', async (req, res) => {
   const { email, pass } = req.body;
   try {
     const user = await UserModel.findOne({ email });
+    
     if (user && user.pass === pass) {
-      res.json("Success");
+      res.json({
+        message: "Success",
+        name: user.name,
+      });
     } else {
       res.json("The Password is incorrect");
     }

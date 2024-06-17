@@ -22,9 +22,10 @@ const Login = () => {
 
       const accesstoken = result?.data?.accesstoken;
       const roles = result?.data?.roles;
+      const name = result?.data?.name;
 
-      if (result.data === 'Success') {
-        setAuth({ user: email, pwd, roles, accesstoken });
+      if (result.data.message === 'Success') {
+        setAuth({ user: name, pwd, roles, accesstoken });
         setEmail('');
         setPwd('');
         navigate('/');
@@ -73,6 +74,7 @@ const Login = () => {
                 name="text"
                 id="email"
                 value={email}
+                autoComplete='email'
                 className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-4 md:mb-0'
                 placeholder='Enter your email id'
                 required

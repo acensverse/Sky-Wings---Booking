@@ -112,11 +112,6 @@ function Signup() {
       <div className="md:fixed inset-0 md:bg-black opacity-50 z-20"></div>
 
       <div className='md:absolute md:flex items-center justify-start md:p-20 xl:ml-100 2xl:ml-165 h-svh z-20'>
-        {/* <Link to='/' className='hidden md:block'>
-          <button>
-            <IoMdClose className='cancel' />
-          </button>
-        </Link> */}
 
         <div className='bg-white border rounded-xl flex flex-col items-center justify-start md:justify-evenly md:p-4 md:py-8 h-full md:h-auto'>
 
@@ -125,6 +120,7 @@ function Signup() {
               <IoMdClose className='cancel' />
             </button>
           </Link>
+
           <Link to='/' className='hidden md:block ml-96 text-2xl'>
             <button>
               <IoMdClose/>
@@ -154,8 +150,9 @@ function Signup() {
                     name="email"
                     id="emailId"
                     required
-                    className='border border-blue-300 rounded-md p-2 px-4 mr-4 w-full mb-2'
+                    className='border border-slate-300 rounded-md p-2 px-4 mr-4 w-full mb-2 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600'
                     placeholder='Enter your email id'
+                    autoComplete='email'
                     value={email}
                     aria-invalid={validEmail ? "false" : "true"}
                     aria-describedby="emailnote"
